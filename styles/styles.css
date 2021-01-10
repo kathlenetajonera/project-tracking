@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.link {
+  color: #242942;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link.login {
+  color: #a0a1ac;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem 0;
+  font-family: "Barlow", sans-serif;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+.landing {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+.landing::before {
+  content: "";
+  width: 50vw;
+  height: 50%;
+  background-color: #eef3f6;
+  displaY: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 4rem;
+  z-index: -1;
+}
+
+.landing .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.landing .navbar .toggle-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.landing .navbar .toggle-btn span {
+  width: 20px;
+  height: 2px;
+  margin: 2px 0;
+  background-color: #242942;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.landing .navbar .toggle-btn span:first-child {
+  -webkit-transform-origin: 5px 3px;
+          transform-origin: 5px 3px;
+}
+
+.landing .navbar .toggle-btn span:last-child {
+  -webkit-transform-origin: 0 -2px;
+          transform-origin: 0 -2px;
+}
+
+.landing .navbar .toggle-btn.open span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.landing .navbar .toggle-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.landing .navbar .toggle-btn.open span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.landing .navbar .menu {
+  display: none;
+}
+
+.landing .navbar .mobile_menu {
+  display: none;
+}
+
+.landing .navbar .mobile_menu.open {
+  display: block;
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 115%);
+          transform: translate(-50%, 115%);
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  -webkit-box-shadow: 0 3px 0.5rem 0 rgba(160, 161, 172, 0.514);
+          box-shadow: 0 3px 0.5rem 0 rgba(160, 161, 172, 0.514);
+  border-radius: 4px;
+}
+
+.landing .navbar .mobile_menu.open li {
+  padding: .6rem 0;
+}
+
+.landing .navbar .mobile_menu.open hr {
+  margin: 1rem 0;
+  border-top: 1px solid #a0a1ac;
+}
+
+@media (min-width: 768px) {
+  .landing .navbar .toggle-btn, .landing .navbar .toggle-btn.open {
+    display: none;
+  }
+  .landing .navbar .mobile_menu, .landing .navbar .mobile_menu.open {
+    display: none;
+  }
+  .landing .navbar .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+  }
+  .landing .navbar .menu li {
+    padding-right: 2.5rem;
+  }
+  .landing .navbar .menu li:last-child::before {
+    content: "\2022";
+    color: #a0a1ac;
+  }
+  .landing .navbar .menu li .link.login {
+    padding-left: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .landing .navbar {
+    padding: 0 7rem;
+  }
+}
+
+.landing .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .landing .container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    margin: 5rem 0;
+  }
+}
+
+.landing .container .text {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.landing .container .text h5 {
+  font-size: 18px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #a0a1ac;
+}
+
+.landing .container .text h5 span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #242942;
+  color: white;
+  width: 60px;
+  padding: 4px 0;
+  border-radius: 2rem;
+  font-weight: 700;
+  margin-right: .5rem;
+}
+
+.landing .container .text h1 {
+  font-size: 2.5rem;
+  font-family: "Barlow Condensed", sans-serif;
+  color: #242942;
+  text-transform: uppercase;
+}
+
+.landing .container .text p {
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  color: #5b5f71;
+}
+
+.landing .container .text .cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing .container .text .cta button {
+  outline: none;
+  border: none;
+  background-color: #ff5c5c;
+  color: white;
+  padding: 1rem;
+  border-radius: .3rem;
+  font-size: 1rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.landing .container .text .cta button:hover {
+  opacity: .7;
+}
+
+.landing .container .text .cta h5 {
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .landing .container .text {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  .landing .container .text .cta button {
+    padding: 1rem 2rem;
+  }
+  .landing .container .text h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .landing .container .text {
+    padding-left: 7rem;
+  }
+  .landing .container .text h1 {
+    width: 90%;
+  }
+  .landing .container .text p {
+    width: 55%;
+  }
+}
+
+.landing .container .image img {
+  max-width: 150%;
+}
+/*# sourceMappingURL=styles.css.map */

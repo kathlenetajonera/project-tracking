@@ -1,0 +1,247 @@
+@import "./variables";
+@import "./global";
+@import "./mixins";
+
+.landing {
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 50vw;
+        height: 50%;
+        background-color: $lightGrayishBlue;
+        displaY: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0 0 0 4rem;
+        z-index: -1;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        .toggle-btn {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+
+            span {
+                width: 20px;
+                height: 2px;
+                margin: 2px 0;
+                background-color: $veryDarkBlue;
+                transition: .2s ease;
+
+                &:first-child {
+                    transform-origin: 5px 3px;
+                }
+
+                &:last-child {
+                    transform-origin: 0 -2px;
+                }
+            }
+
+            &.open {
+                span {
+                    &:first-child {
+                        transform: rotate(45deg);
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:last-child {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .mobile_menu {
+            display: none;
+
+            &.open {
+                display: block;
+                list-style: none;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 115%);
+                background-color: $white;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 1.5rem;
+                box-shadow: 0 3px 0.5rem 0 hsla(235, 7%, 65%, 0.514);
+                border-radius: 4px;
+    
+                li {
+                    padding: .6rem 0;
+                }
+    
+                hr {
+                    margin: 1rem 0;
+                    border-top: 1px solid $grayishBlue;
+                }
+            }
+        }
+        
+
+        @include mediaQuery(tablet) {
+            .toggle-btn, .toggle-btn.open {
+                display: none;
+            }
+
+            .mobile_menu, .mobile_menu.open {
+                display: none;
+            }
+
+            .menu {
+                display: flex;
+                list-style: none;
+
+                li {
+                    padding-right: 2.5rem;
+
+                    &:last-child {
+                        &::before {
+                            content: "\2022";
+                            color: $grayishBlue;
+                        }
+                    }
+
+                    .link {
+                        &.login {
+                            padding-left: 2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mediaQuery(desktop) {
+            padding: 0 7rem;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+        align-items: center;
+        margin: 3rem 0;
+
+        @include mediaQuery(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+            margin: 5rem 0;
+        }
+
+        .text {
+            order: 1;
+
+            h5 {
+                font-size: $font-md;
+                font-family: $mainFont;
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: $grayishBlue;
+
+                span {
+                    display: inline-flex;
+                    justify-content: center;
+                    background-color: $veryDarkBlue;
+                    color: $white;
+                    width: 60px;
+                    padding: 4px 0;
+                    border-radius: 2rem;
+                    font-weight: 700;
+                    margin-right: .5rem;
+                }
+            }
+
+            h1 {
+                font-size: $font-lg;
+                font-family: $mainFont;
+                color: $veryDarkBlue;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: $font-md;
+                font-family: $bodyFont;
+                color: $darkGrayishBlue;
+            }
+
+            .cta {
+                display: flex;
+                align-items: center;
+
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: $red;
+                    color: $white;
+                    padding: 1rem;
+                    border-radius: .3rem;
+                    font-size: $font-normal;
+                    font-family: $mainFont;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    margin-right: 1rem;
+                    text-transform: uppercase;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: .7;
+                    }
+                }
+
+                h5 {
+                    letter-spacing: 2px;
+                    font-size: $font-normal;
+                }
+            }
+
+            @include mediaQuery(tablet) {
+                order: 0;
+
+                .cta button {
+                    padding: 1rem 2rem;
+                }
+
+                h1 {
+                    font-size: 3.5rem;
+                }
+            }
+
+            @include mediaQuery(desktop) {
+                padding-left: 7rem;
+
+                h1 {
+                    width: 90%;
+                }
+
+                p {
+                    width: 55%;
+                }
+            }
+        }
+
+        .image {
+            img {
+                max-width: 150%;
+            }
+        }
+    }
+}

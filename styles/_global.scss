@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.link {
+    color: $veryDarkBlue;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $mainFont;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &.login {
+        color: $grayishBlue;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: $bodyFont;
+
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
